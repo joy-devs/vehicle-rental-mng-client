@@ -1,0 +1,61 @@
+/* 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  background-color: darkgoldenrod;
+}
+
+.App {
+  text-align: center;
+}
+
+.landing-page {
+  padding: 20px;
+}
+
+.welcome-section, .featured-vehicles, .login-options {
+  margin-bottom: 40px;
+}
+
+.vehicle-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.vehicle-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.vehicle-card h3 {
+  margin: 0 0 10px;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-login {
+  background-color: #4caf50;
+  color: white;
+}
+
+.user-login {
+  background-color: #008cba;
+  color: white;
+} */
