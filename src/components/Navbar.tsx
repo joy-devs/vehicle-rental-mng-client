@@ -27,14 +27,13 @@ const Navbar: React.FC = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li><Link to="/">Homepage</Link></li>
-            
             <li><Link to="/register">Register</Link></li>
           </ul>
         </div>
       </div>
-      {/* <div className="navbar-center"> */}
-        <h1 className="btn btn-ghost  text-xl text-red-200">Elite Rides Rental Management System</h1>
-      {/* </div> */}
+      <div className="navbar-center">
+        <h1 className="btn btn-ghost text-xl text-red-200">Elite Rides Rental Management System</h1>
+      </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
           <svg
@@ -71,6 +70,7 @@ const Navbar: React.FC = () => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
+        <Link to="/login" className="btn btn-primary">Login</Link>
       </div>
     </div>
   );

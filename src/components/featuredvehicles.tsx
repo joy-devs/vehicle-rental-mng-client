@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Teslaimg2 from '../landing Page/Images/Tesla img2.jpg';
+import Teslaimg2 from '../assets/Tesla img2.jpg';
 
-import 'tailwindcss/tailwind.css';
-import 'daisyui/dist/full.css';
+
 
 const Car: React.FC = () => {
   return (

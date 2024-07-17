@@ -3,24 +3,48 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { persistor, store } from './app/store';
-// import Dashboard from './components/Dashboard/dashboard';
-import Home from './components/landing Page/home';
-import AboutUs from './components/landing Page/About'; // Import AboutUs component
+import Home from './Pages/home';
+import AboutUs from './components/About';
+import Login from './features/login/login';
+import Userdashboard from './Pages/userdashboard';
+import Profile from './features/profile/profile';
+import Booking from './features/booking/bookings';
+import Support from './components/support';
+import Logout from './components/logout';
 
 const App: React.FC = () => {
-  // Define your routes for the router
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
     },
-    // {
-    //   path: "/dashboard",
-    //   element: <Dashboard />,
-    // },
+    {
+      path: "/login",
+      element: <Login />,
+    },
     {
       path: "/about",
-      element: <AboutUs />, // Add AboutUs route
+      element: <AboutUs />,
+    },
+    {
+      path: "/userdashboard",
+      element: <Userdashboard />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+    },
+    {
+      path: "/bookings",
+      element: <Booking />,
+    },
+    {
+      path: "/support",
+      element: <Support />,
+    },
+    {
+      path: "/logout",
+      element: <Logout />,
     },
   ]);
 

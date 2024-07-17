@@ -1,5 +1,5 @@
 import React from 'react';
-import Teslaimg2 from '../landing Page/Images/Tesla img2.jpg';
+import Teslaimg2 from '../assets/Tesla img2.jpg';
 
 const AboutUs: React.FC = () => {
   return (

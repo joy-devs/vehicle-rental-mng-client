@@ -1,53 +1,48 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { setupListeners } from '@reduxjs/toolkit/query'; // Uncomment this line
-import { loginApi } from '../features/login/loginApi';
-// import { registerApi } from "../features/register/registerSlice";
-import sessionReducer from '../features/login/sessionSlice';
-// import { vehicleApi } from "../features/vehicles/vehicleApi";
-// import { locBranchesApi } from "../features/locationsAndBranches/locBrancesAPI";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { setupListeners } from "@reduxjs/toolkit/query";
 
+import loginAPI from "../features/login/loginApi";
+import authSlice from "../features/Auth/authSlice";
+
+
+// Persist configuration
 const persistConfig = {
-  key: 'root',
-  version: 1,
+  key: "root",
   storage,
+  whitelist: ["usersApi"], // Only persist the users API
 };
 
+// Combine all reducers
 const rootReducer = combineReducers({
-  session: sessionReducer,
-  // [registerApi.reducerPath]: registerApi.reducer,
-  [loginApi.reducerPath]: loginApi.reducer,
-  // [vehicleApi.reducerPath]: vehicleApi.reducer,
-  // [locBranchesApi.reducerPath]: locBranchesApi.reducer
+    [loginAPI.reducerPath]: loginAPI.reducer,
+  
 });
 
+// Create persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// Configure store
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: ["persist/PERSIST"],
       },
-    })
-    // .concat(registerApi.middleware)
-    .concat(loginApi.middleware),
-    // .concat(vehicleApi.middleware).concat(locBranchesApi.middleware),
+    }).concat(
+      // usersAPI.middleware,
+      loginAPI.middleware,
+          ),
 });
 
+// Create persistor
 export const persistor = persistStore(store);
-setupListeners(store.dispatch); // Add this line to setup listeners
 
+// Set up listeners for RTK Query
+setupListeners(store.dispatch);
+
+// Export types
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
