@@ -22,6 +22,7 @@ const Login = () => {
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
     try {
+      console.log(data)
       const response = await loginUser(data).unwrap();
       console.log("API Response:", response); 
       if (response) {
@@ -37,7 +38,8 @@ const Login = () => {
       } else {
         toast.error("Failed to login: Invalid response from server");
       }
-    } catch (err: any) {
+    } 
+    catch (err: any) {
       console.error("Login Error:", err);
       toast.error(
         "Failed to login: " +
@@ -67,11 +69,11 @@ const Login = () => {
           <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">username</span>
               </label>
               <input
-                type="email"
-                placeholder="Email"
+                type="username"
+                placeholder="username"
                 className="input input-bordered"
                 {...usernameInput}
               />

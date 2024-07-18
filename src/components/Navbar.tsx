@@ -26,10 +26,10 @@ const Navbar: React.FC = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li><Link to="/">Homepage</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/" className='bg-blue-950 text-white'>Homepage</Link></li>
+            <li><Link to="/register" className='bg-blue-950 text-white'>Register</Link></li>
           </ul>
-        </div>
+        </div> 
       </div>
       <div className="navbar-center">
         <h1 className="btn btn-ghost text-xl text-red-200">Elite Rides Rental Management System</h1>

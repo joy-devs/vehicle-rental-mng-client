@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
-import loginAPI from "../features/login/loginApi";
+import {loginApi} from "../features/login/loginApi";
 import authSlice from "../features/Auth/authSlice";
 
 
@@ -16,7 +16,7 @@ const persistConfig = {
 
 // Combine all reducers
 const rootReducer = combineReducers({
-    [loginAPI.reducerPath]: loginAPI.reducer,
+    [loginApi.reducerPath]: loginApi.reducer,
   
 });
 
@@ -33,7 +33,7 @@ export const store = configureStore({
       },
     }).concat(
       // usersAPI.middleware,
-      loginAPI.middleware,
+      loginApi.middleware,
           ),
 });
 

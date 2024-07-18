@@ -18,7 +18,7 @@ export interface registerUser {
 export const loginApi = createApi({
   reducerPath: "loginApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/login",
+    baseUrl: "http://localhost:8000/api/",
   }),
   endpoints: (builder) => ({
     loginUser: builder.mutation<User, logInUser>({
@@ -36,14 +36,11 @@ export const loginApi = createApi({
         body: user,
       }),
     }),
-
-    logout: builder.mutation<null, void>({
-      query: () => ({
-        url: "logout",
-        method: "POST",
-      }),
-    }),
   }),
 });
 
-export default loginApi;
+// export const {useRegisterUserMutation, useloginUserMutation} = loginApi as unknown as{
+//   useRegisterUserMutation: () => ReturnType<typeof loginApi.endpoints.registerUser.useMutation>
+//   useloginUserMutation: () => ReturnType<typeof loginApi.endpoints.loginUser.useMutation>
+// };
+export default loginApi 

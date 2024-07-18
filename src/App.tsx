@@ -11,6 +11,8 @@ import Profile from './features/profile/profile';
 import Booking from './features/booking/bookings';
 import Support from './components/support';
 import Logout from './components/logout';
+import Register from './features/login/register';
+import Dashboard from './components/Dashboard';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -26,6 +28,12 @@ const App: React.FC = () => {
       path: "/about",
       element: <AboutUs />,
     },
+      
+    {
+      path: "/register",
+      element: <Register />,
+    },
+
     {
       path: "/userdashboard",
       element: <Userdashboard />,
@@ -46,6 +54,11 @@ const App: React.FC = () => {
       path: "/logout",
       element: <Logout />,
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+
+    }
   ]);
 
   return (
