@@ -18,10 +18,10 @@ const Car: React.FC = () => {
           <p className="mt-2">Unmatched quality and performance, 2024</p>
         </div>
         <div className="mt-10 flex space-x-4">
-          <Link to="/about">
-            <button className="btn btn-primary">About Us</button>
+          <Link to="/register">
+            <button className="btn btn-primary">Get Started</button>
           </Link>
-          {/* <button className="btn btn-outline text-white">Watch Video</button> */}
+          
         </div>
       </div>
       <div className="absolute top-1/4 left-10 z-10 p-4 bg-black bg-opacity-75 rounded-lg shadow-lg">

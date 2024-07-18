@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="fixed inset-y-0 left-0 bg-base-200 shadow-lg z-50 w-64">
+    <div className="fixed inset-y-0 left-0 bg-red-200 shadow-lg z-50 w-64">
       <div className="flex items-center justify-center p-4 border-b border-gray-300">
-        <a className="btn btn-ghost normal-case text-xl">User Dashboard</a>
+        <a className="btn btn-ghost normal-case text-black text-xl">User Dashboard</a>
       </div>
       <ul className="menu p-4 overflow-y-auto">
         <li><Link to="/home" className="text-blue-500 hover:underline">Vehicles</Link></li>

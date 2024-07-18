@@ -27,14 +27,16 @@ const Navbar: React.FC = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li><Link to="/" className='bg-blue-950 text-white'>Homepage</Link></li>
-            <li><Link to="/register" className='bg-blue-950 text-white'>Register</Link></li>
           </ul>
         </div> 
       </div>
       <div className="navbar-center">
         <h1 className="btn btn-ghost text-xl text-red-200">Elite Rides Rental Management System</h1>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center space-x-4">
+        <Link to="/about" className="btn btn-primary mx-2">About Us</Link>
+        <Link to="/contact" className="btn btn-primary mx-2">Contact Us</Link>
+        <Link to="/login" className="btn btn-primary mx-2">Login</Link>
         <button className="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +72,6 @@ const Navbar: React.FC = () => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
-        <Link to="/login" className="btn btn-primary">Login</Link>
       </div>
     </div>
   );

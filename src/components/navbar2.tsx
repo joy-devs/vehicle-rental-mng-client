@@ -4,7 +4,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="navbar bg-base-100 shadow-lg flex justify-between items-center">
+    <div className="navbar bg-blue-950 shadow-lg flex justify-between items-center">
       <div className="flex-1 flex justify-center">
         <a className="btn btn-ghost normal-case text-xl">Elite Rides</a>
       </div>

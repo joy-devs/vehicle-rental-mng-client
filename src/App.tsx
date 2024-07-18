@@ -13,6 +13,7 @@ import Support from './components/support';
 import Logout from './components/logout';
 import Register from './features/login/register';
 import Dashboard from './components/Dashboard';
+import ContactUs from './components/contact';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -27,6 +28,11 @@ const App: React.FC = () => {
     {
       path: "/about",
       element: <AboutUs />,
+    },
+
+    {
+      path: "/contact",
+      element: <ContactUs />,
     },
       
     {
