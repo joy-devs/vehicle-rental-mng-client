@@ -14,6 +14,7 @@ import Logout from './components/logout';
 import Register from './features/login/register';
 import Dashboard from './components/Dashboard';
 import ContactUs from './components/contact';
+import VehicleList from './features/cars/vehicleList'
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -60,6 +61,13 @@ const App: React.FC = () => {
       path: "/logout",
       element: <Logout />,
     },
+
+    {
+      path: "/vehicleList",
+      element: <VehicleList/>,
+
+    },
+
     {
       path: "/dashboard",
       element: <Dashboard />,

@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import loginApi from "../login/loginApi";
 import { useNavigate } from "react-router-dom";
 
