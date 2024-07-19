@@ -17,6 +17,7 @@ const persistConfig = {
 // Combine all reducers
 const rootReducer = combineReducers({
     [loginApi.reducerPath]: loginApi.reducer,
+    [authSlice.reducerPath]: authSlice.reducer,
   
 });
 
