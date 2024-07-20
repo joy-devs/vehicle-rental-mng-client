@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
         <a className="btn btn-ghost normal-case text-black text-xl">User Dashboard</a>
       </div>
       <ul className="menu p-4 overflow-y-auto">
-        <li><Link to="/home" className="text-blue-950 text-xl hover:underline">Vehicles</Link></li>
+        <li><Link to="/vehicleList" className="text-blue-950 text-xl hover:underline">Vehicles</Link></li>
         <li><Link to="/bookings" className="text-blue-950 text-xl hover:underline">Bookings</Link></li>
         <li><Link to="/profile" className="text-blue-950 text-xl hover:underline">Profile</Link></li>
         <li><Link to="/account" className="text-blue-950 text-xl hover:underline">Account Settings</Link></li>

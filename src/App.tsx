@@ -7,7 +7,6 @@ import Home from './Pages/home';
 import AboutUs from './components/About';
 import Login from './features/login/login';
 import Userdashboard from './Pages/userdashboard';
-import Profile from './features/profile/profile';
 import Booking from './features/booking/bookings';
 import Support from './components/support';
 import Logout from './components/logout';
@@ -15,6 +14,7 @@ import Register from './features/login/register';
 import Dashboard from './components/Dashboard';
 import ContactUs from './components/contact';
 import VehicleList from './features/cars/vehicleList'
+import UserProfile from './features/userprofile/userProfile';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -45,10 +45,7 @@ const App: React.FC = () => {
       path: "/userdashboard",
       element: <Userdashboard />,
     },
-    {
-      path: "/profile",
-      element: <Profile />,
-    },
+    
     {
       path: "/bookings",
       element: <Booking />,
@@ -71,6 +68,11 @@ const App: React.FC = () => {
     {
       path: "/dashboard",
       element: <Dashboard />,
+
+    },
+    {
+      path: "/userprofile",
+      element: <UserProfile />,
 
     }
   ]);

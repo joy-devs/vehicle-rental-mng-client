@@ -1,6 +1,6 @@
 import React from 'react';
 import OverviewCards from '../components/overviewCards';
-import RecentBookings from '../features/recentbookings';
+import RecentBookings from '../features/bookings/recentbookings';
 import Sidebar from '../components/sidebar2';
 
 const Dashboard: React.FC = () =>{
