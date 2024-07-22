@@ -16,15 +16,15 @@ export const TicketsAPI = createApi({
   reducerPath: 'ticketsAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:8000/api/',
-    prepareHeaders: (headers) => {
-      const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
-      const token = userDetails?.token;
-      console.log('Token:', token);
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
+    // prepareHeaders: (headers) => {
+    //   const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
+    //   const token = userDetails?.token;
+    //   console.log('Token:', token);
+    //   if (token) {
+    //     headers.set('Authorization', `Bearer ${token}`);
+    //   }
+    //   return headers;
+    // },
   }),
   tagTypes: ['tickets'],
   endpoints: (builder) => ({

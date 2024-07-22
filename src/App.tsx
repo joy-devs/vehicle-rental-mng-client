@@ -6,16 +6,30 @@ import { persistor, store } from './app/store';
 import Home from './Pages/home';
 import AboutUs from './components/About';
 import Login from './features/login/login';
+import Register from './features/login/register';
+import ContactUs from './components/contact';
+
+// user page
 import Userdashboard from './Pages/userdashboard';
 import Bookings from './features/bookings/Bookings';
 import Support from './components/support';
 import Logout from './components/logout';
-import Register from './features/login/register';
-import AdminDashBoard from './Pages/admindashboard';
-import ContactUs from './components/contact';
-import VehicleList from './features/cars/vehicleList';
 import UserProfile from './features/userprofile/userProfile';
+
+// admin page
+import ADashBoard from './Pages/admindashboard';
 import BookingForm from './features/bookings/BookingForm';
+import VehicleList from './features/cars/vehicleList';
+import Error from './Pages/Error';
+import UsersList from './features/users/UsersList';
+import Locations from './features/locations/location';
+import FleetManagement from './features/fleet/fleet';
+import VehicleSpecifications from './features/vehicleSpec/vehicleSpec';
+import ABookings from './features/ABookings/ABooking';
+import Payments from './features/Payments/Payments';
+import Tickets from './features/Tickets/tickets';
+import { Cloud } from './features/cloudinary/cloudinary';
+import AppCloud from './features/cloudinary/cloud';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -31,22 +45,18 @@ const App: React.FC = () => {
       path: "/about",
       element: <AboutUs />,
     },
-
     {
       path: "/contact",
       element: <ContactUs />,
     },
-      
     {
       path: "/register",
       element: <Register />,
     },
-
     {
       path: "/userdashboard",
       element: <Userdashboard />,
     },
-    
     {
       path: "/bookings",
       element: <Bookings />,
@@ -59,28 +69,65 @@ const App: React.FC = () => {
       path: "/logout",
       element: <Logout />,
     },
-
     {
       path: "/vehicleList",
-      element: <VehicleList/>,
-
-    },
-
-    {
-      path: "/admindashboard",
-      element: <AdminDashBoard />,
-
+      element: <VehicleList />,
     },
     {
       path: "/userprofile",
       element: <UserProfile />,
-
     },
     {
       path: "/bookingForm",
       element: <BookingForm />,
-
-    }
+    },
+    {
+      path: "/admindashboard",
+      element: <ADashBoard />,
+      errorElement: <Error />,
+      children: [
+        {
+          path: "users",
+          element: <UsersList />,
+        },
+        {
+          path: "locations",
+          element: <Locations />,
+        },
+        {
+          path: "cars",
+          element: <VehicleList />,
+        },
+        {
+          path: "vehicleSpecifications",
+          element: <VehicleSpecifications />,
+        },
+        {
+          path: "bookings",
+          element: <ABookings />,
+        },
+        {
+          path: "payments",
+          element: <Payments />,
+        },
+        {
+          path: "fleet",
+          element: <FleetManagement />,
+        },
+        {
+          path: "tickets",
+          element: <Tickets />,
+        },
+        {
+          path: "cloudinaryForm",
+          element: <Cloud />,
+        },
+        {
+          path: "cloudinary",
+          element: <AppCloud />,
+        },
+      ],
+    },
   ]);
 
   return (

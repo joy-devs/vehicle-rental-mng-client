@@ -24,7 +24,7 @@ export interface TBookings {
   updated_at: string;
 }
 
-const Bookings: React.FC = () => {
+const ABookings: React.FC = () => {
   const { data, isLoading } = useGetBookingsQuery();
   const [updateBooking] = useUpdateBookingsMutation();
   const [deleteBooking, { data: deleteMsg }] = useDeleteBookingsMutation();
@@ -128,4 +128,4 @@ const Bookings: React.FC = () => {
   );
 };
 
-export default Bookings;
+export default ABookings;

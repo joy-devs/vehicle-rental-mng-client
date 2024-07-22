@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useFetchUserByIdQuery } from './userapi';
+import { useFetchUserByIdQuery } from './UserAPi';
 
 interface UserDetailsProps {
   userId?: number;
