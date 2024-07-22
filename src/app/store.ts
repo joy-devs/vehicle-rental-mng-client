@@ -9,7 +9,9 @@ import { BookingsAPI } from "../features/bookings/BookingApi";
 import {usersApi} from "../features/users/UserAPi"
 import { LocationsApi } from "../features/locations/locationApi";
 import { CarsApi } from "../features/vehicles/vehiclesApi";
-
+import { vehicleSpecApi } from "../features/vehicleSpec/vehicleSpecApi";
+import { PaymentsApi } from "../features/Payments/PaymentsApi";
+import { TicketsAPI } from "../features/Tickets/ticketsApi";
 
 
 // Persist configuration
@@ -27,6 +29,9 @@ const rootReducer = combineReducers({
     [usersApi.reducerPath]:usersApi.reducer,
     [LocationsApi.reducerPath]:LocationsApi.reducer,
     [CarsApi.reducerPath]:CarsApi.reducer,
+    [vehicleSpecApi.reducerPath]:vehicleSpecApi.reducer,
+    [PaymentsApi.reducerPath]:PaymentsApi.reducer,
+    [TicketsAPI.reducerPath]:TicketsAPI.reducer,
   
 });
 
@@ -57,6 +62,15 @@ export const store = configureStore({
           )
           .concat(
             CarsApi.middleware,
+          )
+          .concat(
+            vehicleSpecApi.middleware,
+          )
+          .concat(
+            PaymentsApi.middleware,
+          )
+          .concat(
+            TicketsAPI.middleware,
           )
 });
 

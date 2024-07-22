@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootState } from '../../app/Store'; 
-import { Ticket } from '../customer Tickets/SingleUserTicket'; 
+import { Ticket } from '../Tickets/ticketsApi'; 
 
 export interface User {
   user_id: number;
