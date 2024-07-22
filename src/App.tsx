@@ -11,7 +11,7 @@ import Bookings from './features/bookings/Bookings';
 import Support from './components/support';
 import Logout from './components/logout';
 import Register from './features/login/register';
-import Dashboard from './components/Dashboard';
+import AdminDashBoard from './Pages/admindashboard';
 import ContactUs from './components/contact';
 import VehicleList from './features/cars/vehicleList';
 import UserProfile from './features/userprofile/userProfile';
@@ -67,8 +67,8 @@ const App: React.FC = () => {
     },
 
     {
-      path: "/dashboard",
-      element: <Dashboard />,
+      path: "/admindashboard",
+      element: <AdminDashBoard />,
 
     },
     {

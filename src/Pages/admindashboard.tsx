@@ -1,11 +1,10 @@
 import React from 'react';
-import Navbar from '../components/navbar2';
-// import Booking from './bookings';
-import Sidebar from '../components/sidebar'; 
+import Navbar from '../components/adminnavbar';
+import Sidebar from '../components/sidebar2'; 
 
-// import Profile from './profile';
 
-const Userdashboard: React.FC = () => {
+
+const AdminDashBoard: React.FC = () => {
   return (
     <>
       <Navbar />
@@ -15,4 +14,4 @@ const Userdashboard: React.FC = () => {
   );
 };
 
-export default Userdashboard;
+export default  AdminDashBoard;
