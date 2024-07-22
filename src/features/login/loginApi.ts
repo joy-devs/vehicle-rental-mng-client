@@ -18,7 +18,7 @@ export interface registerUser {
 export const loginApi = createApi({
   reducerPath: "loginApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/",
+    baseUrl: "https://vehicle-mng-backend.onrender.com",
   }),
   endpoints: (builder) => ({
     loginUser: builder.mutation<User, logInUser>({
