@@ -5,8 +5,11 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 
 import {loginApi} from "../features/login/loginApi";
 import authSlice from "../features/Auth/authSlice";
-import {vehiclesApi} from "../features/cars/vehicleApi";
 import { BookingsAPI } from "../features/bookings/BookingApi";
+import {usersApi} from "../features/users/UserAPi"
+import { LocationsApi } from "../features/locations/locationApi";
+import { CarsApi } from "../features/vehicles/vehiclesApi";
+
 
 
 // Persist configuration
@@ -20,8 +23,10 @@ const persistConfig = {
 const rootReducer = combineReducers({
     [loginApi.reducerPath]: loginApi.reducer,
     [authSlice.reducerPath]: authSlice.reducer,
-    [vehiclesApi.reducerPath]:vehiclesApi.reducer,
     [BookingsAPI.reducerPath]:BookingsAPI.reducer,
+    [usersApi.reducerPath]:usersApi.reducer,
+    [LocationsApi.reducerPath]:LocationsApi.reducer,
+    [CarsApi.reducerPath]:CarsApi.reducer,
   
 });
 
@@ -40,12 +45,19 @@ export const store = configureStore({
       // usersAPI.middleware,
       loginApi.middleware,
           )
-          .concat(
-            vehiclesApi.middleware,
-          )
+          
           .concat(
             BookingsAPI.middleware,
-          ),
+          )
+          .concat(
+            usersApi.middleware,
+          )
+          .concat(
+            LocationsApi.middleware,
+          )
+          .concat(
+            CarsApi.middleware,
+          )
 });
 
 
