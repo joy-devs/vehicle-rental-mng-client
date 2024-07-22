@@ -7,7 +7,7 @@ import Home from './Pages/home';
 import AboutUs from './components/About';
 import Login from './features/login/login';
 import Userdashboard from './Pages/userdashboard';
-import Booking from './features/booking/bookings';
+import Bookings from './features/bookings/bookings';
 import Support from './components/support';
 import Logout from './components/logout';
 import Register from './features/login/register';
@@ -48,7 +48,7 @@ const App: React.FC = () => {
     
     {
       path: "/bookings",
-      element: <Booking />,
+      element: <Bookings />,
     },
     {
       path: "/support",
