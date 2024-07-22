@@ -30,6 +30,7 @@ import Payments from './features/Payments/Payments';
 import Tickets from './features/Tickets/tickets';
 import { Cloud } from './features/cloudinary/cloudinary';
 import AppCloud from './features/cloudinary/cloud';
+import { Chart } from 'chart.js';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -117,6 +118,11 @@ const App: React.FC = () => {
         {
           path: "tickets",
           element: <Tickets />,
+        },
+
+        {
+          path: "chart",
+          element: <Chart />,
         },
         {
           path: "cloudinaryForm",
