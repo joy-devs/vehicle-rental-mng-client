@@ -6,7 +6,7 @@ export interface TPayments{
 export const PaymentsAPI = createApi({
   reducerPath: 'paymentsAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: ' https://vehicle-renting-service-api.onrender.com/',
+    baseUrl: ' http://localhost:8000',
   }),
   endpoints: (builder) => ({
     createPayments: builder.mutation<TPayments,{booking_id:number;amount:number}>({

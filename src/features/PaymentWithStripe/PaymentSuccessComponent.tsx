@@ -11,10 +11,10 @@ const PaymentSuccess: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg text-center">
+      <div className="bg-red-200 p-8 rounded-lg shadow-lg w-full max-w-lg text-center">
         <CheckCircle className="w-16 h-16 mx-auto text-green-500" />
         <h1 className="text-3xl font-bold text-green-500 mt-4">Payment Successful!</h1>
-        <p className="mt-4 text-gray-600">Thank you for your payment. Your transaction has been completed successfully.</p>
+        <p className="mt-4 text-gray-400">Thank you for your payment. Your transaction has been completed successfully.</p>
         <button
           onClick={handleGoToDashboard}
           className="mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md transition duration-300"

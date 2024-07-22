@@ -1,143 +1,139 @@
-import React, { useState } from 'react';
-import { useCreateBookingsMutation } from '../bookings/bookingApi';
-import { Toaster, toast } from 'sonner';
-import { useNavigate } from 'react-router-dom'
- 
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useCreateBookingsMutation } from './BookingApi';
+import { TBookedVehicles } from './BookingApi';
+
 const BookingForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    user_id: '',
-    vehicle_id: '',
-    location_id: '',
-    booking_date: '',
-    return_date: '',
-    total_amount: '',
-    booking_status: '',
-  });
-  const [createBooking, { isLoading }] = useCreateBookingsMutation();
- 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const navigate = useNavigate();
-  const handlePaymentsClick = () => {
-    navigate('/singlebookingsummary'); // Replace '/payments' with the actual route you want to navigate to
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const { register, handleSubmit } = useForm<TBookedVehicles>();
+  const [createBooking, { isLoading, error }] = useCreateBookingsMutation();
+
+  const onSubmit = async (data: TBookedVehicles) => {
+    console.log('Payload:', data);
     try {
-      await createBooking(formData).unwrap();
-      toast.success('Booking created successfully!');
-      setFormData({
-        user_id: '',
-        vehicle_id: '',
-        location_id: '',
-        booking_date: '',
-        return_date: '',
-        total_amount: '',
-        booking_status: '',
-      });
-    } catch (error) {
-      toast.error('Failed to create booking!');
-      console.error('Failed to create booking:', error);
+      await createBooking(data).unwrap();
+      alert('Booking created successfully');
+    } catch (err) {
+      console.error('Failed to create booking:', err);
     }
   };
+
   return (
-    <div className="p-4 bg-gray-800 text-white rounded-lg mb-4">
-      <Toaster
-        toastOptions={{
-          classNames: {
-            error: 'bg-red-400',
-            success: 'text-green-400',
-            warning: 'text-yellow-400',
-            info: 'bg-blue-400',
-          },
-        }}
-      />
-      <h2 className="text-xl mb-4">Create Booking</h2>
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <input
-          type="text"
-          name="user_id"
-          placeholder="User ID"
-          value={formData.user_id}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="text"
-          name="vehicle_id"
-          placeholder="Vehicle ID"
-          value={formData.vehicle_id}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="text"
-          name="location_id"
-          placeholder="Location ID"
-          value={formData.location_id}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="date"
-          name="booking_date"
-          placeholder="Booking Date"
-          value={formData.booking_date}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="date"
-          name="return_date"
-          placeholder="Return Date"
-          value={formData.return_date}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="number"
-          name="total_amount"
-          placeholder="Total Amount"
-          value={formData.total_amount}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="text"
-          name="booking_status"
-          placeholder="Booking Status"
-          value={formData.booking_status}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <div className="col-span-1 md:col-span-2 lg:col-span-3">
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-md text-white font-semibold transition duration-300"
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form 
+        onSubmit={handleSubmit(onSubmit)} 
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center">Create Booking</h2>
+        
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user_id">
+            User ID
+          </label>
+          <input 
+            type="text" 
+            id="user_id"
+            {...register('user_id', { required: true })} 
+            placeholder="User ID" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="vehicle_id">
+            Vehicle ID
+          </label>
+          <input 
+            type="text" 
+            id="vehicle_id"
+            {...register('vehicle_id', { required: true })} 
+            placeholder="Vehicle ID" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location_id">
+            Location ID
+          </label>
+          <input 
+            type="text" 
+            id="location_id"
+            {...register('location_id', { required: true })} 
+            placeholder="Location ID" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-800 text-sm font-bold mb-2" htmlFor="booking_date">
+            Booking Date
+          </label>
+          <input 
+            type="date" 
+            id="booking_date"
+            {...register('booking_date', { required: true })} 
+            placeholder="Booking Date" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-800 text-sm font-bold mb-2" htmlFor="return_date">
+            Return Date
+          </label>
+          <input 
+            type="date" 
+            id="return_date"
+            {...register('return_date', { required: true })} 
+            placeholder="Return Date" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-800 text-sm font-bold mb-2" htmlFor="total_amount">
+            Total Amount
+          </label>
+          <input 
+            type="number" 
+            id="total_amount"
+            {...register('total_amount', { required: true })} 
+            placeholder="Total Amount" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-800 text-sm font-bold mb-2" htmlFor="booking_status">
+            Booking Status
+          </label>
+          <input 
+            type="text" 
+            id="booking_status"
+            {...register('booking_status', { required: true })} 
+            placeholder="Booking Status" 
+            className="input input-bordered w-full" 
+          />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <button 
+            type="submit" 
+            disabled={isLoading} 
+            className="btn btn-primary w-full"
           >
             {isLoading ? 'Creating...' : 'Create Booking'}
           </button>
         </div>
+
+        {error && (
+          <p className="text-red-500 text-xs italic mt-4">
+            Failed to create booking: {JSON.stringify(error)}
+          </p>
+        )}
       </form>
-      <div className='flex gap-6 mb-8'>
-      <button className='bg-blue-500 hover:bg-orange-500 text-white p-2 rounded mb-8' onClick={handlePaymentsClick}>
-      Go to Pay
-    </button>
-    </div>
     </div>
   );
 };
- 
+
 export default BookingForm;

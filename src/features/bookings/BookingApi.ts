@@ -52,16 +52,16 @@ export interface Payment {
 export const BookingsAPI = createApi({
   reducerPath: 'bookingsAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000',
-    prepareHeaders: (headers) => {
-      const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
-      const token = userDetails?.token;
-      console.log('Token:', token);
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-      return headers;
-    },
+    baseUrl: 'http://localhost:8000/api/',
+    // prepareHeaders: (headers) => {
+    //   const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
+    //   const token = userDetails?.token;
+    //   console.log('Token:', token);
+    //   if (token) {
+    //     headers.set('Authorization', `Bearer ${token}`);
+    //   }
+    //   return headers;
+    // },
   }),
   tagTypes: ['bookings'],
   endpoints: (builder) => ({

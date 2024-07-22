@@ -7,14 +7,15 @@ import Home from './Pages/home';
 import AboutUs from './components/About';
 import Login from './features/login/login';
 import Userdashboard from './Pages/userdashboard';
-import Bookings from './features/bookings/bookings';
+import Bookings from './features/bookings/Bookings';
 import Support from './components/support';
 import Logout from './components/logout';
 import Register from './features/login/register';
 import Dashboard from './components/Dashboard';
 import ContactUs from './components/contact';
-import VehicleList from './features/cars/vehicleList'
+import VehicleList from './features/cars/vehicleList';
 import UserProfile from './features/userprofile/userProfile';
+import BookingForm from './features/bookings/BookingForm';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -73,6 +74,11 @@ const App: React.FC = () => {
     {
       path: "/userprofile",
       element: <UserProfile />,
+
+    },
+    {
+      path: "/bookingForm",
+      element: <BookingForm />,
 
     }
   ]);
