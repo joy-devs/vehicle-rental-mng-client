@@ -8,9 +8,20 @@ const BookingForm: React.FC = () => {
   const [createBooking, { isLoading, error }] = useCreateBookingsMutation();
 
   const onSubmit = async (data: TBookedVehicles) => {
-    console.log('Payload:', data);
+    const info={
+      user_id:Number(data.user_id),
+      vehicle_id:Number(data.vehicle_id),
+      total_amount: Number(data.total_amount),
+      location_id:Number(data.location_id),
+      return_date:(data.return_date),
+      booking_date:(data.booking_date),
+      booking_status:(data.booking_status)
+
+    }
+    console.log(info);
+    console.log("here")
     try {
-      await createBooking(data).unwrap();
+      await createBooking(info).unwrap();
       alert('Booking created successfully');
     } catch (err) {
       console.error('Failed to create booking:', err);

@@ -13,7 +13,7 @@ export const StripeAPI = createApi({
       query: ({booking_id,amount}) => ({
         url: 'create-checkout-session',
         method: 'POST',
-        body: {booking_id,amount,success_url:'http://localhost:5173/paymentsuccess',cancel_url:'http://localhost:5173/paymentcancel'},
+        body: {booking_id,amount},
       }),
     }), 
   }),
