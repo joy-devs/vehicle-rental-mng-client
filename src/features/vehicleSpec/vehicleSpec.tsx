@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import {
   useFetchVehicleSpecificationsQuery,
   useAddVehicleSpecificationMutation,
@@ -108,11 +108,15 @@ const VehicleSpecifications: React.FC = () => {
 
   const getImageForSpec = (model: string) => {
     const imageName = model.toLowerCase();
-    const image = images.find((img: { id:string}) => img.id.toLowerCase() === imageName);
+    const image = images.find((img: { id: string }) => img.id.toLowerCase() === imageName);
     return image
       ? `https://res.cloudinary.com/dcwglllgt/image/upload/${image.id}.jpg`
       : `https://via.placeholder.com/300x200?text=${encodeURIComponent(model)}`;
   };
+
+  console.log('Data:', data);
+  console.log('Error:', error);
+  console.log('Is Loading:', isLoading);
 
   return (
     <>
@@ -203,45 +207,13 @@ const VehicleSpecifications: React.FC = () => {
                     <img
                       src={imageUrl}
                       alt={`${spec.manufacturer} ${spec.model}`}
-                      className="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out"
+                      className="w-full h-40 object-cover mb-4 rounded transition-transform duration-300 ease-in-out"
                     />
-                    <h2 className="text-xl font-bold mb-4 text-center">
+                    <h2 className="text-lg font-bold mb-2">
                       {spec.manufacturer} {spec.model}
                     </h2>
-                    <div className="bg-gray-800 p-4 rounded-lg">
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Vehicle ID:</span>
-                        <span className="text-green-300">{spec.vehicle_id}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Year:</span>
-                        <span className="text-green-300">{spec.year}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Fuel Type:</span>
-                        <span className="text-green-300">{spec.fuel_type}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Engine Capacity:</span>
-                        <span className="text-green-300">{spec.engine_capacity}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Transmission:</span>
-                        <span className="text-green-300">{spec.transmission}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Seating Capacity:</span>
-                        <span className="text-green-300">{spec.seating_capacity}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Color:</span>
-                        <span className="text-green-300">{spec.color}</span>
-                      </div>
-                      <div className="flex justify-between mb-1">
-                        <span className="font-semibold">Features:</span>
-                        <span className="text-green-300">{spec.features}</span>
-                      </div>
-                    </div>
+                    <p className="text-gray-400">Year: {spec.year}</p>
+                    <p className="text-gray-400">Fuel Type: {spec.fuel_type}</p>
                   </div>
                 );
               })}

@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
             <li><Link to="" className="block py-2 px-4 rounded hover:bg-blue-700">Dashboard</Link></li>
             <li><Link to="users" className="block py-2 px-4 rounded hover:bg-blue-700">Users</Link></li>
             <li><Link to="cars" className="block py-2 px-4 rounded hover:bg-blue-700">Vehicles</Link></li>
-            <li><Link to="vehicleSpecifications" className="block py-2 px-4 rounded hover:bg-blue-700">Vehicles Specifications</Link></li>
+            <li><Link to="specifications" className="block py-2 px-4 rounded hover:bg-blue-700">Vehicles Specifications</Link></li>
             <li>
               <details className="group">
                 <summary className="block py-2 px-4 rounded hover:bg-blue-700 cursor-pointer">

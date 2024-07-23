@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
         <li><Link to="/vehicleList" className="text-blue-950 text-xl hover:underline">Vehicles</Link></li>
         <li><Link to="/bookings" className="text-blue-950 text-xl hover:underline">Bookings</Link></li>
         <li><Link to="/profile" className="text-blue-950 text-xl hover:underline">Profile</Link></li>
-        <li><Link to="/account" className="text-blue-950 text-xl hover:underline">Account Settings</Link></li>
+        {/* <li><Link to="/account" className="text-blue-950 text-xl hover:underline">Account Settings</Link></li> */}
         <li><Link to="/support" className="text-blue-950 text-xl hover:underline">Support</Link></li>
         <li><Link to="/logout" className="text-blue-950 text-xl hover:underline">Logout</Link></li>
       </ul>

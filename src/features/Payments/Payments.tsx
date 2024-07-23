@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetPaymentsQuery, useCreatePaymentMutation, useUpdatePaymentMutation, useDeletePaymentMutation } from './PaymentsApi';
 import { Toaster, toast } from 'sonner';
 
@@ -15,7 +15,13 @@ export interface TPayment {
 }
 
 const Payments: React.FC = () => {
-  const { data, isLoading } = useGetPaymentsQuery();
+  const { data, isLoading, isSuccess } = useGetPaymentsQuery();
+  const [payment, setPaymentDetail] = useState <any>()
+  useEffect(() => {
+    if (data && isSuccess ) {
+      console.log(data)
+    }
+  } ,[data, isSuccess])
   const [createPayment] = useCreatePaymentMutation();
   const [updatePayment] = useUpdatePaymentMutation();
   const [deletePayment, { data: deleteMsg }] = useDeletePaymentMutation();
@@ -78,14 +84,14 @@ const Payments: React.FC = () => {
         <h1 className="text-xl my-4">Payments</h1>
         <form onSubmit={handleCreate} className="mb-4">
           <div className="grid grid-cols-2 gap-4">
-            <input
+            {/* <input
               type="number"
               name="booking_id"
               value={newPayment.booking_id}
               onChange={handleInputChange}
               placeholder="Booking ID"
               className="input input-bordered w-full"
-            />
+            /> */}
             <input
               type="number"
               name="amount"

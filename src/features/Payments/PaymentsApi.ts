@@ -28,12 +28,12 @@ export const PaymentsApi = createApi({
   tagTypes: ['Payments'],
   endpoints: (builder) => ({
     getPayments: builder.query<TPayment[], void>({
-      query: () => 'payments',
+      query: () => 'Payments',
       providesTags: ['Payments'],
     }),
     createPayment: builder.mutation<TPayment, Partial<TPayment>>({
       query: (newPayment) => ({
-        url: 'payments',
+        url: 'Payments',
         method: 'POST',
         body: newPayment,
       }),
@@ -41,7 +41,7 @@ export const PaymentsApi = createApi({
     }),
     updatePayment: builder.mutation<TPayment, Partial<TPayment>>({
       query: ({ payment_id, ...rest }) => ({
-        url: `payments/${payment_id}`,
+        url: `Payments/${payment_id}`,
         method: 'PUT',
         body: rest,
       }),
@@ -49,21 +49,21 @@ export const PaymentsApi = createApi({
     }),
     deletePayment: builder.mutation<{ success: boolean; payment_id: number }, number>({
       query: (payment_id) => ({
-        url: `payments/${payment_id}`,
+        url: `Payments/${payment_id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Payments'],
     }),
     createCheckoutSession: builder.mutation<any, { booking_id: number; amount: number }>({
       query: (data) => ({
-        url: 'payments/create-checkout-session',
+        url: 'Payments/create-checkout-session',
         method: 'POST',
         body: data,
       }),
     }),
     handleWebhook: builder.mutation<any, { payload: any }>({
       query: (data) => ({
-        url: 'payments/webhook',
+        url: 'Payments/webhook',
         method: 'POST',
         body: data,
       }),

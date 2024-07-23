@@ -111,7 +111,7 @@ const App: React.FC = () => {
           element: <VehicleList />,
         },
         {
-          path: "vehicleSpecifications",
+          path: "specifications",
           element: <VehicleSpecifications />,
         },
         {

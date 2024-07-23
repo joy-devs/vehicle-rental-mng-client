@@ -62,15 +62,6 @@ const BookingFormAdmin: React.FC = () => {
       >
         <input
           type="text"
-          name="user_id"
-          placeholder="User ID"
-          value={formData.user_id}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="text"
           name="vehicle_id"
           placeholder="Vehicle ID"
           value={formData.vehicle_id}
@@ -78,16 +69,7 @@ const BookingFormAdmin: React.FC = () => {
           required
           className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
-        <input
-          type="text"
-          name="location_id"
-          placeholder="Location ID"
-          value={formData.location_id}
-          onChange={handleChange}
-          required
-          className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
+          <input
           type="date"
           name="booking_date"
           placeholder="Booking Date"

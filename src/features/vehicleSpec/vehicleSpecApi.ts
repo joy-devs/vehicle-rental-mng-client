@@ -19,28 +19,28 @@ export const vehicleSpecApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://vehicle-mng-backend.onrender.com/api' }),
   endpoints: (builder) => ({
     fetchVehicleSpecifications: builder.query<VehicleSpecification[], void>({
-      query: () => 'vehicleSpecifications',
+      query: () => 'specifications',
     }),
     fetchVehicleSpecificationById: builder.query<VehicleSpecification, number>({
-      query: (id) => `vehicleSpecifications/${id}`,
+      query: (id) => `specifications/${id}`,
     }),
     addVehicleSpecification: builder.mutation<VehicleSpecification, Partial<VehicleSpecification>>({
       query: (vehicleSpecification) => ({
-        url: 'vehicleSpecifications',
+        url: 'specifications',
         method: 'POST',
         body: vehicleSpecification,
       }),
     }),
     updateVehicleSpecification: builder.mutation<VehicleSpecification, Partial<VehicleSpecification>>({
       query: ({ vehicleSpec_id, ...patch }) => ({
-        url: `vehicleSpecifications/${vehicleSpec_id}`,
+        url: `specifications/${vehicleSpec_id}`,
         method: 'PATCH',
         body: patch,
       }),
     }),
     deleteVehicleSpecification: builder.mutation<{ success: boolean; id: number }, number>({
       query: (id) => ({
-        url: `vehicleSpecifications/${id}`,
+        url: `specifications/${id}`,
         method: 'DELETE',
       }),
     }),

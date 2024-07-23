@@ -58,13 +58,13 @@ const Tickets: React.FC = () => {
       <div className="overflow-x-auto bg-gray-800 text-white  p-4 w-full h-screen overflow-y-auto">
         <h1 className="text-xl my-4">My Tickets</h1>
         <div className="mb-4">
-          <input
+          {/* <input
             type="number"
             placeholder="User ID"
             value={newTicket.user_id || ''}
             onChange={(e) => setNewTicket({ ...newTicket, user_id: Number(e.target.value) })}
             className="input input-bordered mr-2"
-          />
+          /> */}
           
           <input
             type="text"
@@ -93,7 +93,7 @@ const Tickets: React.FC = () => {
           <thead>
             <tr>
               <th className="text-white">Ticket ID</th>
-              <th className="text-white">User ID</th>
+              {/* <th className="text-white">User ID</th> */}
               <th className="text-white">SUBJECT</th>
               <th className="text-white">DESCRIPTION</th>
               <th className="text-white">STATUS</th>
