@@ -11,7 +11,7 @@ export const PaymentsAPI = createApi({
   endpoints: (builder) => ({
     createPayments: builder.mutation<TPayments,{booking_id:number;amount:number}>({
       query: ({booking_id,amount}) => ({
-        url: 'create-checkout-session',
+        url: 'https://vehicle-mng-backend.onrender.com/api/create-checkout-session',
         method: 'POST',
         body: {booking_id,amount,success_url:'http://localhost:5173/paymentsuccess',cancel_url:'http://localhost:5173/paymentcancel'},
       }),
