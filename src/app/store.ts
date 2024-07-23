@@ -12,6 +12,7 @@ import { CarsApi } from "../features/vehicles/vehiclesApi";
 import { vehicleSpecApi } from "../features/vehicleSpec/vehicleSpecApi";
 import { PaymentsApi } from "../features/Payments/PaymentsApi";
 import { TicketsAPI } from "../features/Tickets/ticketsApi";
+import { StripeAPI } from "../features/PaymentWithStripe/stripeApi";
 
 
 // Persist configuration
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
     [vehicleSpecApi.reducerPath]:vehicleSpecApi.reducer,
     [PaymentsApi.reducerPath]:PaymentsApi.reducer,
     [TicketsAPI.reducerPath]:TicketsAPI.reducer,
+    [StripeAPI.reducerPath]:StripeAPI.reducer,
   
 });
 
@@ -71,6 +73,9 @@ export const store = configureStore({
           )
           .concat(
             TicketsAPI.middleware,
+          )
+          .concat(
+            StripeAPI.middleware,
           )
 });
 

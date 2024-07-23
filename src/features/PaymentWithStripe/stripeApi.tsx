@@ -3,7 +3,7 @@ export interface TPayments{
     checkouturl:string;
 
 }
-export const PaymentsAPI = createApi({
+export const StripeAPI = createApi({
   reducerPath: 'paymentsAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
@@ -22,4 +22,4 @@ export const {
  
   useCreatePaymentsMutation
 
-}:any = PaymentsAPI;
+}:any = StripeAPI;
