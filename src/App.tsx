@@ -20,7 +20,7 @@ import UserProfile from './features/userprofile/userProfile';
 import ADashBoard from './Pages/admindashboard';
 import BookingForm from './features/bookings/BookingForm';
 import VehicleList from './features/cars/vehicleList';
-import Error from './Pages/Error';
+// import Error from './Pages/Error';
 import UsersList from './features/users/UsersList';
 import Locations from './features/locations/location';
 import FleetManagement from './features/fleet/fleet';
@@ -85,7 +85,7 @@ const App: React.FC = () => {
     {
       path: "/admindashboard",
       element: <ADashBoard />,
-      errorElement: <Error />,
+      // errorElement: <Error />,
       children: [
         {
           path: "users",
