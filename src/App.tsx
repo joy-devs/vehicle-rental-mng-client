@@ -31,6 +31,8 @@ import Tickets from './features/Tickets/tickets';
 import { Cloud } from './features/cloudinary/cloudinary';
 import AppCloud from './features/cloudinary/cloud';
 import  Chart  from './features/charts/charts';
+import PaymentSuccess from './features/PaymentWithStripe/PaymentSuccessComponent';
+import PaymentCancel from './features/PaymentWithStripe/PaymentCancel';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -81,6 +83,15 @@ const App: React.FC = () => {
     {
       path: "/bookingForm",
       element: <BookingForm />,
+    },
+    {
+      path: "paymentSuccess",
+      element: <PaymentSuccess />,
+    },
+    {
+      path: "paymentCancel",
+      element: <PaymentCancel />,
+   
     },
     {
       path: "/admindashboard",
