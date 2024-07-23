@@ -25,12 +25,12 @@ export const LocationsApi = createApi({
   tagTypes: ['Locations'],
   endpoints: (builder) => ({
     getLocations: builder.query<TLocation[], void>({
-      query: () => 'location',
+      query: () => 'locations',
       providesTags: ['Locations'],
     }),
     createLocation: builder.mutation<TLocation, Partial<TLocation>>({
       query: (newLocation) => ({
-        url: 'location',
+        url: 'locations',
         method: 'POST',
         body: newLocation,
       }),
@@ -38,7 +38,7 @@ export const LocationsApi = createApi({
     }),
     updateLocation: builder.mutation<TLocation, Partial<TLocation>>({
       query: ({ location_id, ...rest }) => ({
-        url: `location/${location_id}`,
+        url: `locations/${location_id}`,
         method: 'PUT',
         body: rest,
       }),
@@ -46,7 +46,7 @@ export const LocationsApi = createApi({
     }),
     deleteLocation: builder.mutation<{ success: boolean; location_id: number }, number>({
       query: (location_id) => ({
-        url: `location/${location_id}`,
+        url: `locations/${location_id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Locations'],
