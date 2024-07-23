@@ -15,7 +15,7 @@ export interface Ticket {
 export const TicketsAPI = createApi({
   reducerPath: 'ticketsAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://vehicle-mng-backend.onrender.com',
+    baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
     // prepareHeaders: (headers) => {
     //   const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
     //   const token = userDetails?.token;

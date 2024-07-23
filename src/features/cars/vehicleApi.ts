@@ -8,7 +8,7 @@ export interface Vehicle {
  
 export const vehiclesApi = createApi({
   reducerPath: 'vehiclesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://vehicle-mng-backend.onrender.com' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://vehicle-mng-backend.onrender.com/api' }),
   endpoints: (builder) => ({
     fetchVehicles: builder.query<Vehicle[], void>({
       query: () => 'Vehicles',

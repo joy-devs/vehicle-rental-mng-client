@@ -15,7 +15,7 @@ export interface TFleet {
 export const FleetManagementApi = createApi({
   reducerPath: 'fleetManagementApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://vehicle-mng-backend.onrender.com',
+    baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
     prepareHeaders: (headers) => {
       const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
       const token = userDetails?.token;

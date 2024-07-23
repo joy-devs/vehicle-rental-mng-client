@@ -12,7 +12,7 @@ export interface TLocation {
 export const LocationsApi = createApi({
   reducerPath: 'locationsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://vehicle-mng-backend.onrender.com',
+    baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
     prepareHeaders: (headers) => {
       const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
       const token = userDetails?.token;
