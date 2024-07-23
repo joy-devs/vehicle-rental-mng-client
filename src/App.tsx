@@ -30,7 +30,7 @@ import Payments from './features/Payments/Payments';
 import Tickets from './features/Tickets/tickets';
 import { Cloud } from './features/cloudinary/cloudinary';
 import AppCloud from './features/cloudinary/cloud';
-import { Chart } from 'chart.js';
+import  Chart  from './features/charts/charts';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([

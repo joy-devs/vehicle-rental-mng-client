@@ -32,7 +32,7 @@ const options = {
   },
 };
 
-const Dashboard: React.FC = () => {
+const Chart: React.FC = () => {
   // Hardcoded values for car statistics
   const totalCars = 100;
   const availableCars = 60;
@@ -71,4 +71,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Chart;
