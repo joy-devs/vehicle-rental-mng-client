@@ -27,7 +27,7 @@ const AvailableVehicles: React.FC = () => {
   const [updateVehicleSpecification] = useUpdateVehicleSpecificationMutation();
   const [deleteVehicleSpecification] = useDeleteVehicleSpecificationMutation();
 
-  const [formState, setFormState] = useState<Partial<TVehicleSpecification>>({
+  const [formState, ] = useState<Partial<TVehicleSpecification>>({
     vehicle_id: 0,
     manufacturer: '',
     model: '',
@@ -42,12 +42,12 @@ const AvailableVehicles: React.FC = () => {
 
   const [selectedSpec, setSelectedSpec] = useState<null | TVehicleSpecification>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+//     setFormState({
+//       ...formState,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
 
   const handleUpdate = async (vehicleSpec_id: number) => {
     try {
