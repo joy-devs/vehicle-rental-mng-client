@@ -41,6 +41,7 @@ const ABookings: React.FC = () => {
   const handleUpdatePay = async (booking: TBookedVehicles) => {
     try {
       const { data } = await createCheckout({ booking_id: booking.booking_id, amount: Number(booking.total_amount) });
+      console.log(data)
       if (data?.checkoutUrl) {
         window.location.href = data.checkoutUrl;
       } else {
@@ -52,6 +53,7 @@ const ABookings: React.FC = () => {
       toast.error('Error creating checkout session');
     }
   };
+
 
   return (
     <>

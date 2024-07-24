@@ -5,15 +5,15 @@ import { Toaster, toast } from "sonner";
 
 const BookingFormAdmin: React.FC = () => {
   const [formData, setFormData] = useState({
-    user_id: "",
+    user_id: "2",
     vehicle_id: "",
-    location_id: "",
+    location_id: "2",
     booking_date: "",
     return_date: "",
     total_amount: "",
     booking_status: "",
   });
-  const [createBooking, { isLoading }] = useCreateBookingsMutation();
+  const [createBooking, {data, isLoading }] = useCreateBookingsMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -26,6 +26,7 @@ const BookingFormAdmin: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log(formData)
       await createBooking(formData).unwrap();
       toast.success("Booking created successfully!");
       setFormData({
@@ -37,6 +38,7 @@ const BookingFormAdmin: React.FC = () => {
         total_amount: "",
         booking_status: "",
       });
+      console.log(data)
     } catch (error) {
       toast.error("Failed to create booking!");
       console.error("Failed to create booking:", error);
