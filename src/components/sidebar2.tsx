@@ -44,16 +44,16 @@ const Sidebar: React.FC = () => {
                 </summary>
                 <ul className="pl-4 space-y-2 mt-2">
                   <li><Link to="bookings" className="block py-2 px-4 rounded hover:bg-blue-700">Bookings</Link></li>
-                  <li><Link to="bookingByUserId" className="block py-2 px-4 rounded hover:bg-blue-700">Bookings History</Link></li>
+                  {/* <li><Link to="bookingByUserId" className="block py-2 px-4 rounded hover:bg-blue-700">Bookings History</Link></li> */}
                 </ul>
               </details>
             </li>
             <li><Link to="payments" className="block py-2 px-4 rounded hover:bg-blue-700">Revenue</Link></li>
             <li><Link to="fleet" className="block py-2 px-4 rounded hover:bg-blue-700">Fleet Management</Link></li>
             <li><Link to="tickets" className="block py-2 px-4 rounded hover:bg-blue-700">Customer Tickets</Link></li>
-            <li><Link to="cloudinaryForm" className="block py-2 px-4 rounded hover:bg-blue-700">Upload Vehicles Images</Link></li>
+            {/* <li><Link to="cloudinaryForm" className="block py-2 px-4 rounded hover:bg-blue-700">Upload Vehicles Images</Link></li> */}
             <li><Link to="locations" className="block py-2 px-4 rounded hover:bg-blue-700">Locations & Branches</Link></li>
-            <li><Link to="cloudinary" className="block py-2 px-4 rounded hover:bg-blue-700">Settings</Link></li>
+            {/* <li><Link to="cloudinary" className="block py-2 px-4 rounded hover:bg-blue-700">Settings</Link></li> */}
           </ul>
         </nav>
       </div>

@@ -11,7 +11,7 @@ const UsersList: React.FC = () => {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const navigate = useNavigate();
 
-  const initialUserState = { user_id: 0, full_name: '', email: '', contact_phone: '', address: '', role: 'user' };
+  const initialUserState = { user_id: 2, full_name: '', email: '', contact_phone: '', address: '', role: 'user' };
   const [newUser, setNewUser] = useState(initialUserState);
   const [editMode, setEditMode] = useState(false);
 
@@ -30,6 +30,9 @@ const UsersList: React.FC = () => {
 
   const handleAddUser = async () => {
     try {
+    // newUser = {
+    //   location: 
+    // }
       await addUser(newUser).unwrap();
       setNewUser(initialUserState);
       fetchUsersAndUpdateStorage();
