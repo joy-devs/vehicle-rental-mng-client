@@ -33,6 +33,7 @@ import AppCloud from './features/cloudinary/cloud';
 import  Chart  from './features/charts/charts';
 import PaymentSuccess from './features/PaymentWithStripe/PaymentSuccessComponent';
 import PaymentCancel from './features/PaymentWithStripe/PaymentCancel';
+import AvailableVehicles from './features/avaialable/available vehicles';
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -68,6 +69,12 @@ const App: React.FC = () => {
       path: "/support",
       element: <Support />,
     },
+
+    {
+      path: "/availableVehicles",
+      element: <AvailableVehicles />,
+   
+    },
     {
       path: "/logout",
       element: <Logout />,
@@ -87,6 +94,11 @@ const App: React.FC = () => {
     {
       path: "paymentSuccess",
       element: <PaymentSuccess />,
+    },
+
+    {
+      path: "specifications",
+      element: <VehicleSpecifications />,
     },
     {
       path: "paymentCancel",
@@ -111,10 +123,7 @@ const App: React.FC = () => {
           path: "cars",
           element: <VehicleList />,
         },
-        {
-          path: "specifications",
-          element: <VehicleSpecifications />,
-        },
+       
         {
           path: "bookings",
           element: <ABookings />,
