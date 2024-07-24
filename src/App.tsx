@@ -14,7 +14,7 @@ import Userdashboard from './Pages/userdashboard';
 import Bookings from './features/bookings/Bookings';
 import Support from './components/support';
 import Logout from './components/logout';
-import UserProfile from './features/userprofile/userProfile';
+import UserProfile from './features/users/userProfile';
 
 // admin page
 import ADashBoard from './Pages/admindashboard';
@@ -77,7 +77,7 @@ const App: React.FC = () => {
       element: <VehicleList />,
     },
     {
-      path: "/userprofile",
+      path: "/profile",
       element: <UserProfile />,
     },
     {
@@ -93,6 +93,7 @@ const App: React.FC = () => {
       element: <PaymentCancel />,
    
     },
+    
     {
       path: "/admindashboard",
       element: <ADashBoard />,

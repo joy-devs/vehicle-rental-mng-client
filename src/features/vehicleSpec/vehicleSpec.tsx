@@ -8,7 +8,7 @@ import {
 import { Toaster, toast } from 'sonner';
 import VehicleSpecificationForm from '../../components/specificationForm';
 import ActionButton from '../../components/ActionButton';
-import { images } from '../../features/cloudinary/cloudinary';
+import { getRandomImage } from '../../components/images';
 
 export interface TVehicleSpecification {
   vehicleSpec_id: number;
@@ -106,13 +106,18 @@ const VehicleSpecifications: React.FC = () => {
     setSelectedSpec(null);
   };
 
-  const getImageForSpec = (model: string) => {
-    const imageName = model.toLowerCase();
-    const image = images.find((img: { id: string }) => img.id.toLowerCase() === imageName);
-    return image
-      ? `https://res.cloudinary.com/dcwglllgt/image/upload/${image.id}.jpg`
-      : `https://via.placeholder.com/300x200?text=${encodeURIComponent(model)}`;
-  };
+  // const getImageForSpec = (model: string) => {
+  //   if (model.toLowerCase() === 'tesla') {
+  //     return TeslaImage;
+  //   }
+  //   // Add more images here if needed
+  //   return `https://via.placeholder.com/300x200?text=${encodeURIComponent(model)}`;
+  // };
+
+  // const getRandomImage = () => {
+  //   // Replace with the actual logic to get a random image URL
+  //   return 'https://via.placeholder.com/350x250';
+  // };
 
   console.log('Data:', data);
   console.log('Error:', error);
@@ -141,13 +146,20 @@ const VehicleSpecifications: React.FC = () => {
           <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
             <button
               onClick={handleBackToList}
-              className="mb-4 px-4 py-2 bg-orange-500 text-white font-semibold rounded shadow hover:bg-blue-600 transition duration-300"
+              className="mb-4 px-4 py-2 bg-orange-400 text-white font-semibold rounded shadow hover:bg-blue-600 transition duration-300"
             >
               Back to List
             </button>
-            <img
-              src={getImageForSpec(selectedSpec.model)}
+            {/* <img
+              src={getRandomImage()}
               alt={`${selectedSpec.manufacturer} ${selectedSpec.model}`}
+              className="w-full h-96 object-cover mb-4 rounded transition-transform duration-300 ease-in-out"
+            /> */}
+            <img
+              height="250px"
+              width="350px"
+              src={getRandomImage()}
+              alt={`${selectedSpec.model} image`}
               className="w-full h-96 object-cover mb-4 rounded transition-transform duration-300 ease-in-out"
             />
             <h2 className="text-xl font-bold mb-4 text-center">
@@ -156,35 +168,35 @@ const VehicleSpecifications: React.FC = () => {
             <div className="bg-gray-800 p-4 rounded-lg">
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Vehicle ID:</span>
-                <span className="text-green-300">{selectedSpec.vehicle_id}</span>
+                <span className="text-blue-300">{selectedSpec.vehicle_id}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Year:</span>
-                <span className="text-green-300">{selectedSpec.year}</span>
+                <span className="text-blue-300">{selectedSpec.year}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Fuel Type:</span>
-                <span className="text-green-300">{selectedSpec.fuel_type}</span>
+                <span className="text-blue-300">{selectedSpec.fuel_type}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Engine Capacity:</span>
-                <span className="text-green-300">{selectedSpec.engine_capacity}</span>
+                <span className="text-blue-300">{selectedSpec.engine_capacity}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Transmission:</span>
-                <span className="text-green-300">{selectedSpec.transmission}</span>
+                <span className="text-blue-300">{selectedSpec.transmission}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Seating Capacity:</span>
-                <span className="text-green-300">{selectedSpec.seating_capacity}</span>
+                <span className="text-blue-300">{selectedSpec.seating_capacity}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Color:</span>
-                <span className="text-green-300">{selectedSpec.color}</span>
+                <span className="text-blue-300">{selectedSpec.color}</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span className="font-semibold">Features:</span>
-                <span className="text-green-300">{selectedSpec.features}</span>
+                <span className="text-blue-300">{selectedSpec.features}</span>
               </div>
             </div>
             <div className="flex justify-between mt-4">
@@ -196,7 +208,7 @@ const VehicleSpecifications: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data &&
               data.map((spec: TVehicleSpecification) => {
-                const imageUrl = getImageForSpec(spec.model);
+                const imageUrl = getRandomImage();
 
                 return (
                   <div

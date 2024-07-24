@@ -31,14 +31,6 @@ export const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = (getState() as RootState).auth.token;
-    //   console.log('Token:', token);
-    //   if (token) {
-    //     headers.set('Authorization', `Bearer ${token}`);
-    //   }
-    //   return headers;
-    // },
   }),
   endpoints: (builder) => ({
     fetchUsers: builder.query<User[], void>({

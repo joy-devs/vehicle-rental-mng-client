@@ -1,6 +1,6 @@
 // src/features/Booking/Bookings.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useGetBookingsQuery, useDeleteBookingsMutation, useUpdateBookingsMutation } from './ABookingApi';
 import { Toaster, toast } from 'sonner';
 import BookingFormAdmin from '../../components/BookingFormAdmin';
@@ -59,7 +59,7 @@ const ABookings: React.FC = () => {
         toastOptions={{
           classNames: {
             error: 'bg-red-400',
-            success: 'text-green-400',
+            success: 'text-green-700',
             warning: 'text-yellow-400',
             info: 'bg-blue-400',
           },
@@ -98,7 +98,7 @@ const ABookings: React.FC = () => {
                   <td className="flex gap-2">
                     <button className="btn btn-sm btn-outline btn-info" onClick={() => handleUpdate(bookings.booking_id)}>Update</button>
                     <button className="btn btn-sm btn-outline btn-warning" onClick={() => handleDelete(bookings.booking_id)}>Delete</button>
-                    <Link to={`/bookings/${bookings.booking_id}`} className="btn btn-sm btn-outline btn-primary">View</Link>
+                    {/* <Link to={`/bookings/${bookings.booking_id}`} className="btn btn-sm btn-outline btn-primary">View</Link> */}
                   </td>
                   <td><button className="btn btn-sm btn-outline btn-info" onClick={() => handleUpdatePay(bookings)}>Pay</button></td>
                 </tr>

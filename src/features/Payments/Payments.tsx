@@ -16,7 +16,7 @@ export interface TPayment {
 
 const Payments: React.FC = () => {
   const { data, isLoading, isSuccess } = useGetPaymentsQuery();
-  const [payment, setPaymentDetail] = useState <any>()
+  // const [] = useState <any>()
   useEffect(() => {
     if (data && isSuccess ) {
       console.log(data)
