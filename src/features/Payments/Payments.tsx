@@ -1,3 +1,5 @@
+//payment tsx
+
 import React, { useEffect, useState } from 'react';
 import { useGetPaymentsQuery, useCreatePaymentMutation, useUpdatePaymentMutation, useDeletePaymentMutation } from './PaymentsApi';
 import { Toaster, toast } from 'sonner';

@@ -54,15 +54,7 @@ export const BookingsAPI = createApi({
   reducerPath: 'bookingsAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://vehicle-mng-backend.onrender.com/api',
-    // prepareHeaders: (headers) => {
-    //   const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
-    //   const token = userDetails?.token;
-    //   console.log('Token:', token);
-    //   if (token) {
-    //     headers.set('Authorization', `Bearer ${token}`);
-    //   }
-    //   return headers;
-    // },
+    
   }),
   tagTypes: ['bookings'],
   endpoints: (builder) => ({
